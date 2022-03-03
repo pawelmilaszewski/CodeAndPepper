@@ -10,15 +10,20 @@ export default (
   action: {type: ActionTypes; payload: any},
 ) => {
   switch (action.type) {
-    case ActionTypes.SET_BEST_LEFT_SCORE:
+    case ActionTypes.INCREASE_BEST_TOP_SCORE:
       return {
         ...state,
-        bestTopScore: action.payload,
+        bestTopScore: state.bestTopScore + 1,
       };
-    case ActionTypes.SET_BEST_RIGHT_SCORE:
+    case ActionTypes.INCREASE_BEST_BOTTOM_SCORE:
       return {
         ...state,
-        bestBottomScore: action.payload,
+        bestBottomScore: state.bestBottomScore + 1,
+      };
+    case ActionTypes.RESET_SCORES:
+      return {
+        bestBottomScore: 0,
+        bestTopScore: 0,
       };
     default:
       return state;

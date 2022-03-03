@@ -7,7 +7,7 @@ interface Props {
   loading: boolean;
 }
 
-const Loader: FC<Props> = ({loading}): JSX.Element => {
+export const Loader: FC<Props> = ({loading}): JSX.Element => {
   return (
     <>
       {loading && (
@@ -22,8 +22,6 @@ const Loader: FC<Props> = ({loading}): JSX.Element => {
     </>
   );
 };
-
-export default Loader;
 
 const styles = StyleSheet.create({
   main: {

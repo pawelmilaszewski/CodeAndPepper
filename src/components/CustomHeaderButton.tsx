@@ -9,7 +9,7 @@ interface Props {
   selected: boolean;
 }
 
-const CustomHeaderButton: FC<Props> = ({
+export const CustomHeaderButton: FC<Props> = ({
   text,
   onPress,
   selected,
@@ -19,7 +19,7 @@ const CustomHeaderButton: FC<Props> = ({
       testID={'button'}
       style={
         selected
-          ? [styles.button, {backgroundColor: Colors.GREEN}]
+          ? [styles.button, {backgroundColor: Colors.BLUE}]
           : styles.button
       }
       onPress={onPress}>
@@ -30,21 +30,20 @@ const CustomHeaderButton: FC<Props> = ({
   );
 };
 
-export default CustomHeaderButton;
-
 const styles = StyleSheet.create({
   button: {
-    width: 108,
+    width: 124,
     height: 54,
     justifyContent: 'center',
     alignItems: 'center',
     marginTop: 32,
     borderRadius: 10,
-    backgroundColor: `${Colors.GREEN}50`,
+    backgroundColor: `${Colors.BLUE}50`,
   },
   buttonText: {
     fontSize: 20,
     lineHeight: 24,
     letterSpacing: 1,
+    color: Colors.WHITE,
   },
 });

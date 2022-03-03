@@ -6,9 +6,10 @@ import {StackNavigationProp} from '@react-navigation/stack';
 
 import {ScoreComponent} from '../../components';
 import {RootState} from '../../store';
-import {setBestTopScore, setBestBottomScore} from '../../store/main/actions';
+import {resetScores} from '../../store/main/actions';
 import {MainParamList} from '../../navigation/Navigator';
 import {styles} from './Home.styles';
+import {Colors} from '../../utils/colors';
 
 type ScreenProp = StackNavigationProp<MainParamList>;
 
@@ -20,8 +21,7 @@ const Home = () => {
     (state: RootState) => state.bestBottomScore,
   );
 
-  const resetLeft = () => dispatch(setBestTopScore(0));
-  const resetRight = () => dispatch(setBestBottomScore(0));
+  const reset = () => dispatch(resetScores());
 
   const goToGame = () => navigation.navigate('Game');
 
@@ -29,13 +29,19 @@ const Home = () => {
     <View style={styles.main}>
       <Text style={styles.title}>Star Wars Game</Text>
       <Text style={styles.text}>Your best scores: </Text>
-      <ScoreComponent isTop bestScore={bestTopScore} reset={resetLeft} />
-      <ScoreComponent bestScore={bestBottomScore} reset={resetRight} />
+      <ScoreComponent isTop bestScore={bestTopScore} />
+      <ScoreComponent bestScore={bestBottomScore} />
       <TouchableOpacity
         onPress={goToGame}
         style={styles.playButton}
         testID={'play_button'}>
         <Text style={styles.playButtonText}>Play!</Text>
+      </TouchableOpacity>
+      <TouchableOpacity
+        onPress={reset}
+        style={[styles.playButton, {backgroundColor: Colors.RED}]}
+        testID={'reset_button'}>
+        <Text style={styles.playButtonText}>Reset scores</Text>
       </TouchableOpacity>
     </View>
   );

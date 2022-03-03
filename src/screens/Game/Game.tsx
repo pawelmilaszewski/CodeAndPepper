@@ -1,6 +1,5 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react-native/no-inline-styles */
-import React, {useState, useEffect, useCallback} from 'react';
+import React, {useState, useEffect, useCallback, useMemo} from 'react';
 import {View, Text, TouchableOpacity} from 'react-native';
 import {useSelector, useDispatch} from 'react-redux';
 import {useNavigation} from '@react-navigation/native';
@@ -9,7 +8,10 @@ import {Card, Title, Paragraph} from 'react-native-paper';
 import axios from 'axios';
 
 import {RootState} from '../../store';
-import {setBestTopScore, setBestBottomScore} from '../../store/main/actions';
+import {
+  increaseBestTopScore,
+  increaseBestBottomScore,
+} from '../../store/main/actions';
 import {MainParamList} from '../../navigation/Navigator';
 import {styles} from './Game.styles';
 import {Colors} from '../../utils/colors';
@@ -37,7 +39,6 @@ const Game = () => {
   const [bottomCard, setBottomCard] = useState<Item>({} as Item);
   const [dataPeople, setDataPeople] = useState<People[]>([]);
   const [dataStarships, setDataStarships] = useState<Starship[]>([]);
-  const [winnerName, setWinnerName] = useState('');
   const goBack = () => navigation.goBack();
 
   const getCardDetails = useCallback(
@@ -99,28 +100,33 @@ const Game = () => {
     getCardDetails(setBottomCard, isPeople ? dataPeople : dataStarships);
   };
 
-  const getWinner = () => {
+  const increaseTop = useCallback(
+    () => dispatch(increaseBestTopScore()),
+    [dispatch],
+  );
+  const increaseBottom = useCallback(
+    () => dispatch(increaseBestBottomScore()),
+    [dispatch],
+  );
+
+  const getWinner = useMemo(() => {
     if (topCard.mass > bottomCard.mass || topCard.crew > bottomCard.crew) {
-      dispatch(setBestTopScore(bestTopScore + 1));
-      setWinnerName(topCard.name);
+      increaseTop();
+      return topCard.name;
     } else if (
       topCard.mass < bottomCard.mass ||
       topCard.crew < bottomCard.crew
     ) {
-      dispatch(setBestBottomScore(bestBottomScore + 1));
-      setWinnerName(bottomCard.name);
+      increaseBottom();
+      return bottomCard.name;
     } else {
-      setWinnerName('Nobody');
+      return 'Nobody';
     }
-  };
+  }, [topCard, bottomCard, increaseBottom, increaseTop]);
 
   useEffect(() => {
     getData();
   }, [getData, isPeople]);
-
-  useEffect(() => {
-    getWinner();
-  }, [topCard, bottomCard]);
 
   const renderCard = useCallback(
     (card: Item) => (
@@ -129,9 +135,9 @@ const Game = () => {
           styles.card,
           {
             backgroundColor:
-              winnerName === card.name
+              getWinner === card.name
                 ? Colors.GREEN
-                : winnerName === 'Nobody'
+                : getWinner === 'Nobody'
                 ? Colors.GRAY
                 : Colors.RED,
           },
@@ -144,7 +150,7 @@ const Game = () => {
         </Card.Content>
       </Card>
     ),
-    [isPeople, winnerName],
+    [isPeople, getWinner],
   );
 
   return (
@@ -164,7 +170,7 @@ const Game = () => {
       </View>
       <View style={styles.container}>
         <Text style={styles.winner} testID={'winner_text'}>
-          {winnerName} wins!
+          {getWinner} wins!
         </Text>
         <Text style={styles.cardScore} testID={'top_card_text'}>
           Top card: {bestTopScore} wins

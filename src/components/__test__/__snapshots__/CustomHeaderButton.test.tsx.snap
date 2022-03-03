@@ -15,13 +15,13 @@ exports[`render custom header button 1`] = `
   style={
     Object {
       "alignItems": "center",
-      "backgroundColor": "#7CFC00",
+      "backgroundColor": "#0000FF",
       "borderRadius": 10,
       "height": 54,
       "justifyContent": "center",
       "marginTop": 32,
       "opacity": 1,
-      "width": 108,
+      "width": 124,
     }
   }
   testID="button"
@@ -29,6 +29,7 @@ exports[`render custom header button 1`] = `
   <Text
     style={
       Object {
+        "color": "#FFFFFF",
         "fontSize": 20,
         "letterSpacing": 1,
         "lineHeight": 24,

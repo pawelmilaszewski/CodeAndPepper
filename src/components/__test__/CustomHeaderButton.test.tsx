@@ -1,5 +1,5 @@
 import React from 'react';
-import CustomHeaderButton from '../CustomHeaderButton';
+import {CustomHeaderButton} from '../index';
 import {render} from '@testing-library/react-native';
 
 test('render custom header button', () => {
