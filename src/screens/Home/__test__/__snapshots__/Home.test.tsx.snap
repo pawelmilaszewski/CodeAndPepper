@@ -1,0 +1,185 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render home 1`] = `
+<View
+  style={
+    Object {
+      "flex": 1,
+      "paddingHorizontal": 20,
+      "paddingTop": 54,
+    }
+  }
+>
+  <Text
+    style={
+      Object {
+        "fontSize": 32,
+        "letterSpacing": 1,
+        "lineHeight": 36,
+        "textAlign": "center",
+      }
+    }
+  >
+    Star Wars Game
+  </Text>
+  <Text
+    style={
+      Object {
+        "fontSize": 24,
+        "letterSpacing": 1,
+        "lineHeight": 26,
+        "marginBottom": 16,
+        "marginTop": 32,
+      }
+    }
+  >
+    Your best scores: 
+  </Text>
+  <View
+    style={
+      Object {
+        "flexDirection": "row",
+        "marginVertical": 8,
+      }
+    }
+  >
+    <Text
+      style={
+        Object {
+          "fontSize": 20,
+          "lineHeight": 24,
+        }
+      }
+      testID="text"
+    >
+      Top: 
+      0
+    </Text>
+    <View
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "alignItems": "center",
+          "justifyContent": "center",
+          "marginLeft": 16,
+          "opacity": 1,
+        }
+      }
+      testID="reset_button"
+    >
+      <Text
+        style={
+          Object {
+            "color": "#FF0000",
+            "fontSize": 16,
+            "lineHeight": 20,
+          }
+        }
+      >
+        Reset score
+      </Text>
+    </View>
+  </View>
+  <View
+    style={
+      Object {
+        "flexDirection": "row",
+        "marginVertical": 8,
+      }
+    }
+  >
+    <Text
+      style={
+        Object {
+          "fontSize": 20,
+          "lineHeight": 24,
+        }
+      }
+      testID="text"
+    >
+      Bottom: 
+      0
+    </Text>
+    <View
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "alignItems": "center",
+          "justifyContent": "center",
+          "marginLeft": 16,
+          "opacity": 1,
+        }
+      }
+      testID="reset_button"
+    >
+      <Text
+        style={
+          Object {
+            "color": "#FF0000",
+            "fontSize": 16,
+            "lineHeight": 20,
+          }
+        }
+      >
+        Reset score
+      </Text>
+    </View>
+  </View>
+  <View
+    accessible={true}
+    collapsable={false}
+    focusable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "alignItems": "center",
+        "alignSelf": "center",
+        "backgroundColor": "#7CFC00",
+        "borderRadius": 10,
+        "justifyContent": "center",
+        "marginTop": 64,
+        "opacity": 1,
+        "padding": 16,
+        "width": "80%",
+      }
+    }
+    testID="play_button"
+  >
+    <Text
+      style={
+        Object {
+          "fontSize": 24,
+          "fontWeight": "bold",
+          "lineHeight": 26,
+        }
+      }
+    >
+      Play!
+    </Text>
+  </View>
+</View>
+`;

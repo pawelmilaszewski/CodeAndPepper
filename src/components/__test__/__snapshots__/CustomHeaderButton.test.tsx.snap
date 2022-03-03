@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render custom header button 1`] = `
+<View
+  accessible={true}
+  collapsable={false}
+  focusable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "#7CFC00",
+      "borderRadius": 10,
+      "height": 54,
+      "justifyContent": "center",
+      "marginTop": 32,
+      "opacity": 1,
+      "width": 108,
+    }
+  }
+  testID="button"
+>
+  <Text
+    style={
+      Object {
+        "fontSize": 20,
+        "letterSpacing": 1,
+        "lineHeight": 24,
+      }
+    }
+    testID="text"
+  >
+    People
+  </Text>
+</View>
+`;

@@ -1,0 +1,4 @@
+export enum ActionTypes {
+  SET_BEST_LEFT_SCORE = 'SET_BEST_LEFT_SCORE',
+  SET_BEST_RIGHT_SCORE = 'SET_BEST_RIGHT_SCORE',
+}
