@@ -6,7 +6,7 @@ import {StackNavigationProp} from '@react-navigation/stack';
 
 import {ScoreComponent} from '../../components';
 import {RootState} from '../../store';
-import {setbestTopScore, setbestBottomScore} from '../../store/main/actions';
+import {setBestTopScore, setBestBottomScore} from '../../store/main/actions';
 import {MainParamList} from '../../navigation/Navigator';
 import {styles} from './Home.styles';
 
@@ -20,8 +20,8 @@ const Home = () => {
     (state: RootState) => state.bestBottomScore,
   );
 
-  const resetLeft = () => dispatch(setbestTopScore(0));
-  const resetRight = () => dispatch(setbestBottomScore(0));
+  const resetLeft = () => dispatch(setBestTopScore(0));
+  const resetRight = () => dispatch(setBestBottomScore(0));
 
   const goToGame = () => navigation.navigate('Game');
 
