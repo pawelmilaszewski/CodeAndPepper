@@ -70,7 +70,9 @@ const Game = () => {
     },
     [isPeople],
   );
-
+  // I did it in this way because there is no possibility to get random object from swapi.
+  // I tried to get random number from 0 to 10 and pass it as ID but there were bugs with object's ID's,
+  // so I decided to get all data from chosen endpoint and get random object from local state.
   const getData = useCallback(async () => {
     setLoading(true);
     await axios
